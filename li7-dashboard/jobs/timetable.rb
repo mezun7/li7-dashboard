@@ -1,3 +1,8 @@
+require 'json'
+require 'net/http'
+require 'uri'
+
+
 timetable = {
 1 => [																																													
 	{ cols: [	{value:"	1	"},	{value:"	МатК	"},	{value:"	рус	"},	{value:"	геогр	"},	{value:"	Геом	"},	{value:"	инфа	"},	{value:"	рус	"},	{value:"	хим	"},		{value:"	Физ-ра	"},	{value:"	физика	"},	{value:"	ОИст	"},	{value:"	Биол	"},	{value:"	англ	"},	{value:"	лит	"}	] },
@@ -104,7 +109,8 @@ prev_wday = -1
 SCHEDULER.every '1m',  :first_in => 0 do |job|
 	rows = ''
 	time = Time.new
-
+	uri = URI('http://127.0.0.1:8000/front/get_timetable/1/')
+	tmtable = JSON.parse(Net::HTTP.get(uri))
 	wday = time.wday
 	# if jobs runs overnight, thus prev>0 (for ex, 8),
 	# timetable for the previous day is showed until 1st lesson =>
@@ -137,15 +143,15 @@ SCHEDULER.every '1m',  :first_in => 0 do |job|
 							}
 						]
 		end
+			send_event('timetable', tmtable)
+	  	# send_event('timetable', {
+			#   		headers: [
+			# 			{value:"	  	"},{value:"	5A	"},	{value:"	6A	"},	{value:"	7А	"},	{value:"	7Б	"},	{value:"	8А	"},	{value:"	8Б	"},	{value:"	9А	"},	{value:"	9Б	"},	{value:"	10A тех	"},	{value:"	10Б тех	"},	{value:"	11A	"},	{value:"	11Б	"},	{value:"	11С	"}
+			#   		],
+			#   		rows: rows
+		  # 		}
 
-	  	send_event('timetable', {
-			  		headers: [
-						{value:"	  	"},{value:"	5A	"},	{value:"	6A	"},	{value:"	7А	"},	{value:"	7Б	"},	{value:"	8А	"},	{value:"	8Б	"},	{value:"	9А	"},	{value:"	9Б	"},	{value:"	10A тех	"},	{value:"	10Б тех	"},	{value:"	11A	"},	{value:"	11Б	"},	{value:"	11С	"}
-			  		],
-			  		rows: rows
-		  		}
-
-		)
+		# )
 		prev = index
 	end
 end
