@@ -19,4 +19,4 @@ puts tmt
 
 uri2 = URI('http://127.0.0.1:8000/front/announcements/')
 quotes = JSON.parse(Net::HTTP.get(uri2))
-puts quotes[0]['title']
+puts quotes['title']
