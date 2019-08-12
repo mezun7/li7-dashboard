@@ -2,12 +2,14 @@
 $(function() {
   // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
   // Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
-    Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":6,"size_y":1},{"col":1,"row":2,"size_x":3,"size_y":1},{"col":4,"row":2,"size_x":3,"size_y":1},{"col":7,"row":2,"size_x":2,"size_y":1}]')
+    //Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":6,"size_y":1},{"col":1,"row":2,"size_x":3,"size_y":1},{"col":4,"row":2,"size_x":3,"size_y":1},{"col":7,"row":2,"size_x":2,"size_y":1}]')
+
+    Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":1,"size_y":1},{"col":2,"row":1,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":6,"size_y":1},{"col":1,"row":3,"size_x":2,"size_y":1}]')
 
    // Dashing.widget_base_dimensions = [370, 340]
   //Dashing.numColumns = 5
-    Dashing.widget_base_dimensions = [250, 370]
-    Dashing.numColumns = 8
+  //   Dashing.widget_base_dimensions = [250, 370]
+  //   Dashing.numColumns = 8
 });
 </script>
 
@@ -29,9 +31,19 @@ $(function() {
       <div data-id="quote" data-view="Text" ></div>
       <i class="fa fa-exclamation-circle icon-background"></i>
     </li>
-    <li data-row="1" data-col="1" data-sizex="6" data-sizey="1">
+    <li data-row="2" data-col="1" data-sizex="6" data-sizey="1">
       <div data-id="timetable" data-view="Litsey7Table" data-title="Расписание"></div>
     </li>
+
+    <li data-row="3" data-col="3" data-sizex="2" data-sizey="1">
+      <div data-id="klimato" data-view="Klimato" ></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+      <div data-id="a_timeline" data-view="Timeline" data-title="Предстоящие события"></div>
+    </li>
+
+
 
 
 <!--    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">-->

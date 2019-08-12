@@ -1,26 +1,25 @@
-require "net/http"
-require "json"
+# frozen_string_literal: true
+
+require 'json'
+require 'net/http'
+require 'uri'
 
 # WOEID for location:
 # http://woeid.rosselliot.co.nz
-woeid  = 2121267
 
 # Units for temperature:
 # f: Fahrenheit
 # c: Celsius
+BASE_URL = 'http://127.0.0.1:8000/front/weather/'
 format = "c"
 
-query  = URI::encode "select * from weather.forecast WHERE woeid=#{woeid} and u='#{format}'&format=json"
-
-SCHEDULER.every "15m", :first_in => 0 do |job|
-  http     = Net::HTTP.new "query.yahooapis.com"
-  request  = http.request Net::HTTP::Get.new("/v1/public/yql?q=#{query}")
-  response = JSON.parse request.body
-  results  = response["query"]["results"]
+SCHEDULER.every '10m', first_in: 0 do |_job|
+  results = JSON.parse(Net::HTTP.get(URI(BASE_URL)))
 
   if results
-    condition = results["channel"]["item"]["condition"]
-    location  = results["channel"]["location"]
-    send_event "klimato", { location: location["city"], temperature: condition["temp"], code: condition["code"], format: format }
+    temp = results['temp']
+    feels_like = results['feels']
+    city = 'Казань'
+    send_event 'klimato', location: city, temperature: temp, feels: feels_like, format => "c", :code => 0, :update => results['update'], :icon => results['icon']
   end
 end
