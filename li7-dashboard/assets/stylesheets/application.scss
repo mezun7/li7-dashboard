@@ -129,6 +129,18 @@ h3 {
   margin-top: 82px;
 }
 
+.icon-background-without-margin {
+  pointer-events: none;
+  width: 100%!important;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.1;
+  font-size: 275px;
+  text-align: center;
+}
+
 .list-nostyle {
   list-style: none;
 }
