@@ -7,12 +7,9 @@ class Dashing.Countdown extends Dashing.Widget
     current_timestamp = Math.round(new Date().getTime()/1000)
     end_timestamp = Math.round( Date.parse($(@node).find(".more-info").html())/1000 )
     seconds_until_end = end_timestamp - current_timestamp
-    if seconds_until_end < 3600
-      $(@node).parent().remove()
-    else if seconds_until_end < 0
+    if seconds_until_end < 0
       @set('timeleft', "TIME UP!")
-      for i in [0..100] by 1
-        $(@node).fadeTo('fast', 0).fadeTo('fast', 1.0)
+      $(@node).fadeTo('fast', 0).fadeTo('fast', 1)
     else
       d = Math.floor(seconds_until_end/86400)
       h = Math.floor((seconds_until_end-(d*86400))/3600)
