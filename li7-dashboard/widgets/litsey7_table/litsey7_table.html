@@ -3,15 +3,14 @@
 <table>
 	<thead>
 		<tr>
-			<th data-foreach-header="headers" data-bind="header.value"></th>
+			<th data-foreach-header="headers" data-bind="header.value" class="header"></th>
 		</tr>
 	</thead>
 	<tbody>
 	
   <tr data-foreach-row="rows" data-bind-class="row.class">
   	<td data-foreach-col="row.cols" data-bind-title="col.title" data-bind-class="col.class">
-  		<span data-bind="col.value | raw"></span>
-  		<span data-bind-class="col.arrow"></span>
+  		<span data-bind="col.value | raw" data-bind-class="col.arrow"></span>
   	</td>
   </tr>
   </tbody>
