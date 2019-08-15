@@ -208,8 +208,17 @@ var TimeKnots = {
             .append('text').attr("class", "event-description-date")
             .html(function(d){
                 if (moment(d.date).isSame(TODAY, 'day') && d.name !== "TODAY") {
-                    return "TODAY";
+                    // TODO
+                    //Here maybe problem
+                    return "Сегодня";
                 }
+                // return new Date(d.date).toLocaleString('ru-RU', {
+                //     weekday: 'short',
+                //     month: 'short',
+                //     day: 'numeric',
+                //
+                // });
+                moment.locale('ru');
                 return moment(new Date(d.date)).format("MMM D");
             })
             .attr("x", function(d) {

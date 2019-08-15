@@ -17,15 +17,15 @@ class Dashing.Klimato extends Dashing.Widget
       $(@node).removeClass match[0] if match
 
   findColorLevelBy: (temperature, format) ->
-    ranges = @temperatureRangesFor format
+    ranges = { 0: 0,  1: [1..5],   2: [6..10],  3: [11..15], 4: [16..20], 5: [21..25], 6: 25 }
     switch
-      when temperature <= ranges[0] then 0
-      when temperature in ranges[1] then 1
-      when temperature in ranges[2] then 2
-      when temperature in ranges[3] then 3
-      when temperature in ranges[4] then 4
-      when temperature in ranges[5] then 5
-      when temperature >  ranges[6] then 6
+      when temperature <= ranges[0] then return 0
+      when temperature in ranges[1] then return 1
+      when temperature in ranges[2] then return 2
+      when temperature in ranges[3] then return 3
+      when temperature in ranges[4] then return 4
+      when temperature in ranges[5] then return 5
+      when temperature >  ranges[6] then return 6
 
   temperatureRangesFor: (format) ->
     ranges =
