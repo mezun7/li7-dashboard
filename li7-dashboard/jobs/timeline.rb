@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 MAX_DAYS_OVERDUE = -20
-MAX_DAYS_AWAY = 356
+MAX_DAYS_AWAY = 30
 
 config_file = File.dirname(File.expand_path(__FILE__)) + '/../timeline_data.yml'
 
