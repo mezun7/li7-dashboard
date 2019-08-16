@@ -10,11 +10,11 @@ require 'uri'
 # Units for temperature:
 # f: Fahrenheit
 # c: Celsius
-BASE_URL = 'http://127.0.0.1:8000/front/weather/'
+BASE_URL2 = 'http://127.0.0.1:8000/front/weather/'
 format = "c"
 
-SCHEDULER.every '10m', first_in: 0 do |_job|
-  results = JSON.parse(Net::HTTP.get(URI(BASE_URL)))
+SCHEDULER.every '1m', first_in: 0 do |_job|
+  results = JSON.parse(Net::HTTP.get(URI(BASE_URL2)))
 
   if results
     temp = results['temp']
