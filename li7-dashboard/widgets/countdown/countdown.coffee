@@ -16,9 +16,11 @@ class Dashing.Countdown extends Dashing.Widget
       m = Math.floor((seconds_until_end-(d*86400)-(h*3600))/60)
       s = seconds_until_end-(d*86400)-(h*3600)-(m*60)
       if d >0
-        dayname = 'day'
+        dayname = 'день'
         if d > 1
-          dayname = 'days'
+          dayname = 'дня'
+        if d > 4
+          dayname = 'дней'
         @set('timeleft', d + " "+dayname+" " + @formatTime(h) + ":" + @formatTime(m) + ":" + @formatTime(s))
       else
         @set('timeleft', @formatTime(h) + ":" + @formatTime(m) + ":" + @formatTime(s))
