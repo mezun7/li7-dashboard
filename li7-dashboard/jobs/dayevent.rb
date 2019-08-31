@@ -5,7 +5,7 @@ require 'net/http'
 require 'uri'
 SCHEDULER.every '10s', first_in: 0 do |_job|
   time = Time.new
-  uri = URI("http://127.0.0.1:8000/front/dayevents/")
+  uri = URI("http://timetable.litsey7.com/front/dayevents/")
   dayevents = JSON.parse(Net::HTTP.get(uri))
   send_event('dayevent', dayevents)
 

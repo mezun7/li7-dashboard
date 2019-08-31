@@ -6,7 +6,7 @@ MAX_DAYS_AWAY = 30
 config_file = File.dirname(File.expand_path(__FILE__)) + '/../timeline_data.yml'
 
 SCHEDULER.every '30m', first_in: 0 do |_job|
-  BASE_URL = 'http://127.0.0.1:8000'
+  BASE_URL = 'http://timetable.litsey7.com'
   url_events = "#{BASE_URL}/front/events/"
   config = JSON.parse(Net::HTTP.get(URI(url_events)))
 

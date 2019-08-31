@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 SCHEDULER.every '15s', first_in: 0 do |_job|
-  BASE_URL = 'http://127.0.0.1:8000'
+  BASE_URL = 'http://timetable.litsey7.com'
   url_next_lesson = "#{BASE_URL}/front/next_lesson/"
 
   next_lesson = JSON.parse(Net::HTTP.get(URI(url_next_lesson)))
