@@ -20,7 +20,7 @@ class Dashing.Timeline extends Dashing.Widget
 
     container = $(@node).parent()
     # Gross hacks. Let's fix this.
-    width = (Dashing.widget_base_dimensions[0] * container.data("sizex")) + Dashing.widget_margins[0] * 2 * (container.data("sizex") - 1) - left - right
+    width = (Dashing.widget_base_dimensions[0] * container.data("sizex")) + Dashing.widget_margins[0] * 3 * (container.data("sizex") - 1) - left - right
     height = (Dashing.widget_base_dimensions[1] * container.data("sizey")) - ($(@node).find("h1").outerHeight() + 12) - top - bottom
     id = "." + @get('id')
-    TimeKnots.draw(id, events, {horizontalLayout: false, color: "#222222", height: height, width: width, showLabels: true, labelFormat:"%H:%M"});
+    TimeKnots.draw(id, events, {horizontalLayout: false, color: "#222222", height: height, width: width , showLabels: true, labelFormat:"%H:%M"});

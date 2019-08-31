@@ -67,9 +67,9 @@ var TimeKnots = {
             y2: null
         }
 
-        TIMELINE_LEFT_MARGIN = 130;
-        TEXT_LEFT_MARGIN = 110;
-        DATE_LEFT_MARGIN = 100;
+        TIMELINE_LEFT_MARGIN = 230;
+        TEXT_LEFT_MARGIN = 210;
+        DATE_LEFT_MARGIN = 200;
 
         svg.selectAll("line")
             .data(events).enter().append("line")
