@@ -1,0 +1,68 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color: #fff6da;
+$second-background-color: #fbc99d;
+$value-color: #042f4b;
+
+$title-color: #042f4b;
+$label-color: #042f4b;
+$moreinfo-color: #042f4b;
+
+$active-color: rgba(168, 240, 255, 0.61);
+$preactive-color: rgba(168, 240, 255, 0.61);
+
+// ----------------------------------------------------------------------------
+// Widget-list styles
+// ----------------------------------------------------------------------------
+
+.widget-litsey7-table {
+  background-color: $background-color;
+  vertical-align: top;
+
+  .title {
+    color: $title-color;
+    font-weight: bold;
+  }
+
+  .header {
+    color: $title-color;
+  }
+
+  .period {
+    color: $title-color;
+    font-weight: bold;
+  }
+
+  td {
+    margin: 0 15px;
+    /*text-align: left;*/
+    color: $label-color;
+  }
+
+  .value {
+    margin-left: 12px;
+    font-weight: 600;
+    color: $value-color;
+  }
+
+  .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+  .active {
+    background-color: $active-color !important;
+  }
+
+  .preactive {
+    background-color: $preactive-color !important;
+  }
+
+  tbody tr:nth-child(odd){ 
+    background: $second-background-color;
+  }
+}
