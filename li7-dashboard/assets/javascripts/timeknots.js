@@ -219,7 +219,7 @@ var TimeKnots = {
                 //
                 // });
                 moment.locale('ru');
-                return moment(new Date(d.date)).format("MMM D, HH:MM");
+                return moment(new Date(d.date)).format("MMM D, HH:mm");
             })
             .attr("x", function(d) {
                 return Math.floor(cfg.width / 2)  + DATE_LEFT_MARGIN
