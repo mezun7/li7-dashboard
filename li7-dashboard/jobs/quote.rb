@@ -7,7 +7,6 @@ require 'uri'
 ind = 0
 SCHEDULER.every '15s', first_in: 0 do |_job|
   BASE_URL = 'http://timetable.litsey7.com'
-  BASE_URL = 'http://127.0.0.1:8000'
   url_announcement = "#{BASE_URL}/front/announcements/?ind=#{ind}"
   url_quote = "#{BASE_URL}/front/quote/?ind=#{ind}"
 
